@@ -1,0 +1,402 @@
+<!DOCTYPE html><html><head>
+      <title>main</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E5%A4%9A%E5%8A%9F%E8%83%BD%E5%8D%95%E4%BD%8D%E8%BD%AC%E6%8D%A2%E7%9A%84%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F">&#x591A;&#x529F;&#x80FD;&#x5355;&#x4F4D;&#x8F6C;&#x6362;&#x7684;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;</h1>
+
+<p align="right">&#x4F5C;&#x8005;&#xFF1A;&#x5355;&#x5764;</p>
+<hr>
+<p>&#x8FD1;&#x65E5;&#xFF0C;&#x6211;&#x5B9E;&#x9A8C;&#x5BA4;&#x5F00;&#x53D1;&#x4E86;&#x4E00;&#x79CD;&#x9002;&#x7528;&#x4E8E;&#x7269;&#x7406;&#xFF0C;&#x5316;&#x5B66;&#x79D1;&#x7814;&#x5B9E;&#x9A8C;&#x5BA4;&#x53CD;&#x5E94;&#x52A8;&#x529B;&#x5B66;&#x7B49;&#x65B9;&#x5411;&#x7684;&#x79D1;&#x5B66;&#x5355;&#x4F4D;&#x8F6C;&#x6362;&#x5668;&#xFF0C;&#x5982;&#x5E38;&#x7528;&#x7684;&#x5316;&#x5B66;&#x53CD;&#x5E94;&#x6E29;&#x5EA6;&#xFF0C;&#x6C14;&#x538B;&#xFF0C;&#x6FC0;&#x5149;&#x6CE2;&#x957F;&#xFF0C;&#x529F;&#x7387;&#x7B49;&#x5355;&#x4F4D;&#x7684;&#x8F6C;&#x5316;&#x3002;&#x672C;&#x6587;&#x5C06;&#x5BF9;&#x6B64;&#x5C0F;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x7B80;&#x5355;&#x63CF;&#x8FF0;&#x4E0E;&#x7B97;&#x6CD5;&#x5C55;&#x793A;&#x3002;<br>
+<img src="intro.jpg" alt="&#x5C0F;&#x7A0B;&#x5E8F;&#x7B80;&#x4ECB;"><br>
+&#x53EF;&#x4EE5;&#x5728;&#x5FAE;&#x4FE1;&#x4E2D;&#x641C;&#x7D22;&#x201C;Units Converter&#x201D;&#x6216;&#x8005;&#x626B;&#x63CF;&#x4E0B;&#x9762;&#x7684;&#x4E8C;&#x7EF4;&#x7801;&#x6765;&#x83B7;&#x53D6;&#x6211;&#x4EEC;&#x7684;&#x5355;&#x4F4D;&#x8F6C;&#x6362;&#x4E0E;&#x8BA1;&#x7B97;&#x5C0F;&#x7A0B;&#x5E8F;&#x3002;</p>
+<div align="center"><img src="./QR_code.jpg" width="100"></div>
+<h2 class="mume-header" id="1-energy-%E9%83%A8%E5%88%86">1 Energy &#x90E8;&#x5206;</h2>
+
+<h3 class="mume-header" id="11-energy-calculate">1.1 Energy Calculate</h3>
+
+<div align="center"><img src="./page_1-1.jpg" width="200/"></div>
+&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x80FD;&#x91CF;&#x5355;&#x4F4D;&#x4E0E;&#x5316;&#x5B66;&#x53CD;&#x5E94;&#x80FD;&#x91CF;&#x7684;&#x8BA1;&#x7B97;&#x3002;&#x82E5;&#x6309;&#x5316;&#x5B66;&#x53CD;&#x5E94;&#x80FD;&#x91CF;&#x6765;&#x8BA1;&#x7B97;&#xFF0C;&#x90A3;&#x4E48;&#x9ED8;&#x8BA4;&#x7684;&#x5355;&#x4F4D;&#x662F;1mol&#x53CD;&#x5E94;&#x7684;&#x80FD;&#x91CF;&#x3002;&#x63D0;&#x4F9B;&#x4E86;&#x5982;&#x4E0B;&#x5355;&#x4F4D;&#x7684;&#x6362;&#x7B97;&#x4E0E;&#x8BA1;&#x7B97;&#xFF1A;
+<ul>
+<li>&#x7535;&#x5B50;&#x4F0F;&#x7279;</li>
+<li>&#x5343;&#x5361;&#xFF08;&#x6BCF;mol&#xFF09;</li>
+<li>&#x5343;&#x7126;&#xFF08;&#x6BCF;mol&#xFF09;</li>
+<li>&#x5F00;&#x5C14;&#x6587;&#x6E29;&#x5EA6;</li>
+<li>&#x54C8;&#x7279;&#x91CC;</li>
+<li>&#x771F;&#x7A7A;&#x6CE2;&#x957F;</li>
+<li>&#x6CE2;&#x6570;</li>
+<li>&#x9891;&#x7387;&#xFF08;THz&#xFF09;</li>
+</ul>
+<h3 class="mume-header" id="12-time-of-filght-calculate">1.2 Time of Filght Calculate</h3>
+
+<div align="center"><img src="./page_1-2.jpg" width="200/"></div>
+&#x672C;&#x90E8;&#x5206;&#x63D0;&#x4F9B;&#x4E86;&#x7C92;&#x5B50;&#x98DE;&#x884C;&#x65F6;&#x95F4;&#x7684;&#x8BA1;&#x7B97;&#x3002;&#x9700;&#x8981;&#x63D0;&#x524D;&#x51C6;&#x5907;&#x7684;&#x662F;&#xFF0C;&#x8981;&#x5728;&#x6A21;&#x5757;1-1&#x4E2D;&#x4FDD;&#x8BC1;&#x6709;&#x6548;&#x7684;&#x7535;&#x5B50;&#x4F0F;&#x7279;&#x4E0E;C--&#x7535;&#x8377;&#x8F93;&#x5165;&#xFF0C;&#x6216;&#x8005;&#x4FDD;&#x8BC1;&#x6709;&#x6548;&#x7684;$\Delta$V--&#x5E73;&#x884C;&#x573A;&#x7535;&#x538B;&#x548C;C--&#x7535;&#x8377;&#x8F93;&#x5165;&#xFF0C;&#x4EE5;&#x8868;&#x660E;&#x80FD;&#x91CF;&#x8F93;&#x5165;&#x7684;&#x5408;&#x6CD5;&#x6027;&#xFF1B;&#x63A5;&#x7740;&#x9700;&#x8981;&#x8F93;&#x5165;&#x5206;&#x5B50;&#x91CF;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#x98DE;&#x884C;&#x901F;&#x5EA6;&#xFF1B;&#x6700;&#x540E;&#x8F93;&#x5165;&#x98DE;&#x884C;&#x8DDD;&#x79BB;&#xFF0C;&#x4FBF;&#x53EF;&#x4EE5;&#x7B97;&#x51FA;&#x98DE;&#x884C;&#x6240;&#x9700;&#x65F6;&#x95F4;&#x3002;&#x4EC5;&#x6709;&#x5408;&#x6CD5;&#x7535;&#x8377;&#x3001;&#x5206;&#x5B50;&#x91CF;&#x548C;&#x98DE;&#x884C;&#x901F;&#x5EA6;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x53CD;&#x63A8;&#x51FA;&#x6240;&#x9700;&#x7684;&#x7535;&#x5B50;&#x4F0F;&#x7279;&#x80FD;&#x91CF;&#x3002;&#x4EE5;&#x4E0A;&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x516C;&#x5F0F;&#xFF08;&#x5FFD;&#x7565;&#x5355;&#x4F4D;&#xFF09;&#x5982;&#x4E0B;&#xFF1A;
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mi>p</mi><mi>e</mi><mi>e</mi><mi>d</mi><mo>=</mo><msqrt><mfrac><mrow><mn>2</mn><mo>&#x2217;</mo><mi mathvariant="normal">&#x394;</mi><mi>V</mi><mo>&#x2217;</mo><mi>C</mi></mrow><mrow><mi>m</mi><mi mathvariant="normal">.</mi><mi>w</mi><mi mathvariant="normal">.</mi><mo>&#x2217;</mo><msub><mi>M</mi><mi>p</mi></msub></mrow></mfrac></msqrt></mrow><annotation encoding="application/x-tex">Speed=\sqrt{\frac{2*\Delta V*C}{m.w.*M_p}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">Sp</span><span class="mord mathnormal">ee</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.84em;vertical-align:-0.6899945000000001em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1500055em;"><span class="svg-align" style="top:-3.8em;"><span class="pstrut" style="height:3.8em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">m</span><span class="mord mtight">.</span><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span><span class="mord mtight">.</span><span class="mbin mtight">&#x2217;</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285716em;"><span style="top:-2.357em;margin-left:-0.10903em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight">p</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.2818857142857143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mbin mtight">&#x2217;</span><span class="mord mtight">&#x394;</span><span class="mord mathnormal mtight" style="margin-right:0.22222em;">V</span><span class="mbin mtight">&#x2217;</span><span class="mord mathnormal mtight" style="margin-right:0.07153em;">C</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.5423199999999999em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-3.1100054999999998em;"><span class="pstrut" style="height:3.8em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.8800000000000001em;"><svg width="400em" height="1.8800000000000001em" viewBox="0 0 400000 1944" preserveAspectRatio="xMinYMin slice"><path d="M983 90
+l0 -0
+c4,-6.7,10,-10,18,-10 H400000v40
+H1013.1s-83.4,268,-264.1,840c-180.7,572,-277,876.3,-289,913c-4.7,4.7,-12.7,7,-24,7
+s-12,0,-12,0c-1.3,-3.3,-3.7,-11.7,-7,-25c-35.3,-125.3,-106.7,-373.3,-214,-744
+c-10,12,-21,25,-33,39s-32,39,-32,39c-6,-5.3,-15,-14,-27,-26s25,-30,25,-30
+c26.7,-32.7,52,-63,76,-91s52,-60,52,-60s208,722,208,722
+c56,-175.3,126.3,-397.3,211,-666c84.7,-268.7,153.8,-488.2,207.5,-658.5
+c53.7,-170.3,84.5,-266.8,92.5,-289.5z
+M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.6899945000000001em;"><span></span></span></span></span></span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>O</mi><mi>F</mi><mo>=</mo><mfrac><mrow><mi>D</mi><mi>e</mi><mi>s</mi><mi>t</mi></mrow><mrow><mi>S</mi><mi>p</mi><mi>e</mi><mi>e</mi><mi>d</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">TOF=\frac{Dest}{Speed}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">TOF</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.3534389999999998em;vertical-align:-0.481108em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">Sp</span><span class="mord mathnormal mtight">ee</span><span class="mord mathnormal mtight">d</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">Des</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.481108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ul>
+<h2 class="mume-header" id="2-pressure-%E9%83%A8%E5%88%86">2 Pressure &#x90E8;&#x5206;</h2>
+
+<div align="center"><img src="./page_2.jpg" width="200/"></div>
+<h3 class="mume-header" id="21-basic-pressure-convert">2.1 Basic Pressure Convert</h3>
+
+<p>&#x672C;&#x90E8;&#x5206;&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x538B;&#x529B;&#x5355;&#x4F4D;&#x8F6C;&#x6362;&#x529F;&#x80FD;&#xFF0C;&#x53EF;&#x8F6C;&#x6362;&#x7684;&#x5355;&#x4F4D;&#x6709;&#xFF1A;</p>
+<ul>
+<li>&#x5E15;&#x65AF;&#x5361;</li>
+<li>&#x6258;</li>
+<li>&#x5343;&#x514B;&#x6BCF;&#x5E73;&#x65B9;&#x5398;&#x7C73;</li>
+<li>&#x5927;&#x6C14;&#x538B;</li>
+<li>&#x78C5;&#x5E73;&#x65B9;&#x82F1;&#x5BF8;</li>
+<li>&#x5DF4;</li>
+</ul>
+<h3 class="mume-header" id="22-molecule-density-calculate">2.2 Molecule Density Calculate</h3>
+
+<p>&#x672C;&#x90E8;&#x5206;&#x63D0;&#x4F9B;&#x4E86;&#x6839;&#x636E;&#x7406;&#x60F3;&#x6C14;&#x4F53;&#x72B6;&#x6001;&#x65B9;&#x7A0B;&#x8BA1;&#x7B97;&#x7684;&#x7406;&#x60F3;&#x6C14;&#x4F53;&#x5206;&#x5B50;&#x5BC6;&#x5EA6;&#xFF0C;&#x548C;2-1&#x90E8;&#x5206;&#x4E2D;&#x7684;pa&#x4E0E;2-3&#x90E8;&#x5206;&#x7684;K&#x76F8;&#x5173;&#x8054;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#x4E92;&#x76F8;&#x6362;&#x7B97;&#x3002;&#x57FA;&#x672C;&#x8BA1;&#x7B97;&#x516C;&#x5F0F;&#xFF08;&#x5FFD;&#x7565;&#x5355;&#x4F4D;&#xFF09;&#x5982;&#x4E0B;&#xFF1A;<br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>M</mi><mi>D</mi><mo>=</mo><mfrac><mrow><mi>P</mi><mi>a</mi><mo>&#x2217;</mo><msub><mi>N</mi><mi>A</mi></msub></mrow><mrow><mi>R</mi><mo>&#x2217;</mo><mi>K</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">MD=\frac{Pa*N_A}{R*K}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2217;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2217;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">A</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h3 class="mume-header" id="23-basic-temperature">2.3 Basic Temperature</h3>
+
+<p>&#x672C;&#x90E8;&#x5206;&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x6E29;&#x5EA6;&#x8F6C;&#x6362;&#xFF0C;&#x53EF;&#x8F6C;&#x6362;&#x7684;&#x5355;&#x4F4D;&#x6709;&#xFF1A;</p>
+<ul>
+<li>&#x5F00;&#x5C14;&#x6587;&#x6E29;&#x5EA6;</li>
+<li>&#x6444;&#x6C0F;&#x5EA6;</li>
+<li>&#x534E;&#x6C0F;&#x5EA6;</li>
+</ul>
+<h2 class="mume-header" id="3-light-%E9%83%A8%E5%88%86">3 Light &#x90E8;&#x5206;</h2>
+
+<h3 class="mume-header" id="31-more-basic-light-unit-convert">3.1 More Basic Light Unit Convert</h3>
+
+<div align="center"><img src="./page_3-1.jpg" width="200/"></div>
+&#x672C;&#x90E8;&#x5206;&#x5728;Energy&#x90E8;&#x5206;&#x7684;&#x5173;&#x4E8E;&#x5149;&#x7C92;&#x5B50;&#x6027;&#x7684;&#x8F6C;&#x6362;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x5728;&#x6B64;&#x90E8;&#x5206;&#x62D3;&#x5C55;&#x4E86;&#x5149;&#x6CE2;&#x52A8;&#x6027;&#x7684;&#x5355;&#x4F4D;&#x8F6C;&#x6362;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#xFF1A;
+<ul>
+<li>&#x771F;&#x7A7A;&#x6CE2;&#x957F;</li>
+<li>&#x7A7A;&#x6C14;&#x6CE2;&#x957F;&#xFF08;&#x4E0E;&#x7A7A;&#x6C14;&#x6298;&#x5C04;&#x7387;&#x6709;&#x5173;&#xFF09;</li>
+<li>&#x7A7A;&#x6C14;&#x6298;&#x5C04;&#x7387;&#xFF08;&#x9ED8;&#x8BA4;&#x662F;1.00029&#xFF09;</li>
+<li>&#x6CE2;&#x6570;</li>
+<li>&#x9891;&#x7387;</li>
+</ul>
+<h3 class="mume-header" id="32-laser-pulse-characteristics-calculate">3.2 Laser Pulse Characteristics Calculate</h3>
+
+<div align="center"><img src="./page_3-2.jpg" width="200/"></div>
+&#x672C;&#x90E8;&#x5206;&#x901A;&#x8FC7;&#x53EF;&#x8F93;&#x5165;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x6FC0;&#x5149;&#x5668;&#x53EF;&#x8BFB;&#x53C2;&#x6570;&#xFF0C;&#x8BA1;&#x7B97;&#x51FA;&#x5E38;&#x7528;&#x7684;&#x6FC0;&#x5149;&#x6307;&#x6807;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;
+<ul>
+<li>&#x8F93;&#x5165;
+<ul>
+<li>&#x5E73;&#x5747;&#x529F;&#x7387;</li>
+<li>&#x8109;&#x51B2;&#x534A;&#x9AD8;&#x5BBD;</li>
+<li>&#x8109;&#x51B2;&#x9891;&#x7387;</li>
+<li>&#x6CE2;&#x957F;</li>
+</ul>
+</li>
+<li>&#x8F93;&#x51FA;
+<ul>
+<li>&#x5CF0;&#x503C;&#x529F;&#x7387;</li>
+<li>&#x8109;&#x51B2;&#x5360;&#x7A7A;&#x6BD4;</li>
+<li>&#x5CF0;-&#x5CF0;&#x65F6;&#x95F4;</li>
+<li>&#x8109;&#x51B2;&#x80FD;&#x91CF;</li>
+<li>&#x6BCF;&#x4E2A;&#x8109;&#x51B2;&#x53D1;&#x5C04;&#x7684;&#x5149;&#x5B50;&#x6570;</li>
+</ul>
+</li>
+</ul>
+<p>&#x4EE5;&#x4E0A;&#x53C2;&#x6570;&#x53EF;&#x901A;&#x8FC7;&#x4E0B;&#x56FE;&#x6765;&#x5F62;&#x8C61;&#x7684;&#x8868;&#x793A;&#xFF1A;</p>
+<div align="center"><img src="./pulsed_source.png" width="300/"></div>
+<h2 class="mume-header" id="4-power-%E9%83%A8%E5%88%86">4 Power &#x90E8;&#x5206;</h2>
+
+<h3 class="mume-header" id="41-basic-power-convert">4.1 Basic Power Convert</h3>
+
+<div align="center"><img src="./page_4.jpg" width="200/"></div>
+&#x672C;&#x90E8;&#x5206;&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x7840;&#x7684;&#x7535;&#x5B50;&#x7535;&#x8DEF;&#x529F;&#x7387;&#x8F6C;&#x5316;&#x4E0E;&#x8BA1;&#x7B97;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;
+<ul>
+<li>&#x7535;&#x963B;</li>
+<li>&#x7535;&#x538B;</li>
+<li>&#x529F;&#x7387;</li>
+<li>&#x5206;&#x8D1D;&#x6BEB;&#x74E6;</li>
+</ul>
+<p>&#x5176;&#x4E2D;&#xFF0C;&#x5206;&#x8D1D;&#x6BEB;&#x74E6;&#x7684;&#x8BA1;&#x7B97;&#x516C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;<br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mi>b</mi><mi>m</mi><mo>=</mo><mn>10</mn><mi>log</mi><mo>&#x2061;</mo><mfrac><mrow><mi>P</mi><mi>o</mi><mi>w</mi><mi>e</mi><mi>r</mi></mrow><mrow><mn>1</mn><mi>m</mi><mi>W</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">dbm=10\log{\frac{Power}{1mW}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">bm</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord">10</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.13889em;">mW</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal" style="margin-right:0.02778em;">er</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></span></p>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x7531;&#x4E8E;&#x5FAE;&#x4FE1;&#x5B98;&#x65B9;&#x7684;weui-input&#x529F;&#x80FD;&#x4E0D;&#x5B8C;&#x5584;&#xFF0C;&#x65E0;&#x6CD5;&#x505A;&#x5230;&#x5168;&#x5E73;&#x53F0;&#x540C;&#x6B65;&#x6570;&#x5B57;&#x952E;&#x76D8;&#xFF0C;&#x6545;&#x8F93;&#x5165;&#x9700;&#x8981;&#x7528;&#x79FB;&#x52A8;&#x7AEF;&#x7684;&#x8F93;&#x5165;&#x6CD5;&#x8FDB;&#x884C;&#x8F93;&#x5165;&#xFF0C;&#x672C;&#x5C0F;&#x7A0B;&#x5E8F;&#x5177;&#x6709;&#x9519;&#x8BEF;&#x68C0;&#x67E5;&#xFF0C;&#x5BF9;&#x4E8E;&#x975E;&#x6CD5;&#x5B57;&#x7B26;&#x4F1A;&#x76F4;&#x63A5;&#x65E0;&#x89C6;&#x8F93;&#x5165;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x8D1F;&#x53F7;&#x5219;&#x53EF;&#x4EE5;&#x8F93;&#x5165;&#x4E24;&#x6B21;&#x5C0F;&#x6570;&#x70B9;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x6307;&#x6570;&#x53EF;&#x4EE5;&#x8F93;&#x5165;&#x4E09;&#x6B21;&#x5C0F;&#x6570;&#x70B9;&#xFF0C;&#x4E0D;&#x8FC7;&#x5728;&#x5F00;&#x653E;&#x4E86;&#x8F93;&#x5165;&#x6CD5;&#x952E;&#x76D8;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8F93;&#x5165;&#x8D1F;&#x53F7;&#x4E0E;&#x6307;&#x6570;&#x3002;</p>
+<p>&#x8F93;&#x5165;&#x7684;&#x6570;&#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x610F;32&#x4F4D;&#x6D6E;&#x70B9;&#x6570;&#xFF0C;&#x4F8B;&#x5982;1.1111&#x6216;&#x8005;1.11e11&#x90FD;&#x662F;&#x5408;&#x6CD5;&#x7684;&#x3002;</p>
+<hr>
+<p>&#x5E0C;&#x671B;&#x8FD9;&#x4E2A;&#x5C0F;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x5728;&#x79D1;&#x7814;&#x5B66;&#x4E60;&#x4E2D;&#x5E2E;&#x5230;&#x5927;&#x5BB6;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x4EFB;&#x4F55;&#x95EE;&#x9898;&#x548C;&#x5EFA;&#x8BAE;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x90AE;&#x4EF6;&#x548C;<a href="mailto:790402351@qq.com">&#x4F5C;&#x8005;</a>&#x6C9F;&#x901A;&#x3002;</p>
+<p align="right">2021-06-22</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
